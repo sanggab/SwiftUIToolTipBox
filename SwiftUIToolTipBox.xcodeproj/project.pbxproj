@@ -10,6 +10,7 @@
 		EF0F558C2B7B32500082AC53 /* SwiftUIToolTipBoxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0F558B2B7B32500082AC53 /* SwiftUIToolTipBoxTests.swift */; };
 		EF0F55962B7B32500082AC53 /* SwiftUIToolTipBoxUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0F55952B7B32500082AC53 /* SwiftUIToolTipBoxUITests.swift */; };
 		EF0F55982B7B32500082AC53 /* SwiftUIToolTipBoxUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF0F55972B7B32500082AC53 /* SwiftUIToolTipBoxUITestsLaunchTests.swift */; };
+		EF9560BE2B7C54D8007D3F81 /* ViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF9560BD2B7C54D8007D3F81 /* ViewExtension.swift */; };
 		EFD9D0692B7C515D00C975C2 /* ToolTipShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD9D05C2B7C515D00C975C2 /* ToolTipShape.swift */; };
 		EFD9D06A2B7C515D00C975C2 /* ToolTipModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD9D05E2B7C515D00C975C2 /* ToolTipModifier.swift */; };
 		EFD9D06B2B7C515D00C975C2 /* ToolTipModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD9D0602B7C515D00C975C2 /* ToolTipModel.swift */; };
@@ -43,6 +44,7 @@
 		EF0F55912B7B32500082AC53 /* SwiftUIToolTipBoxUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftUIToolTipBoxUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF0F55952B7B32500082AC53 /* SwiftUIToolTipBoxUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIToolTipBoxUITests.swift; sourceTree = "<group>"; };
 		EF0F55972B7B32500082AC53 /* SwiftUIToolTipBoxUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIToolTipBoxUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		EF9560BD2B7C54D8007D3F81 /* ViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewExtension.swift; sourceTree = "<group>"; };
 		EFD9D05C2B7C515D00C975C2 /* ToolTipShape.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolTipShape.swift; sourceTree = "<group>"; };
 		EFD9D05E2B7C515D00C975C2 /* ToolTipModifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolTipModifier.swift; sourceTree = "<group>"; };
 		EFD9D0602B7C515D00C975C2 /* ToolTipModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolTipModel.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 		EFD9D0592B7C515D00C975C2 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				EF9560BD2B7C54D8007D3F81 /* ViewExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -338,6 +341,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF9560BE2B7C54D8007D3F81 /* ViewExtension.swift in Sources */,
 				EFD9D06A2B7C515D00C975C2 /* ToolTipModifier.swift in Sources */,
 				EFD9D06B2B7C515D00C975C2 /* ToolTipModel.swift in Sources */,
 				EFD9D06F2B7C515D00C975C2 /* SwiftUIToolTipBoxApp.swift in Sources */,
