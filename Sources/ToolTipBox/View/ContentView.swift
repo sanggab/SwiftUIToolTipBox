@@ -13,11 +13,8 @@ struct ContentView: View {
             Text("오 안녕하세요")
                 .padding(.vertical, 8)
                 .padding(.horizontal, 8)
-//                .background(.mint)
-//                .cornerRadius(12)
-            
                 .toolTip {
-                    ToolTipModel(style: .fillWithStrokeBorder,
+                    ToolTipModel(style: .fill,
                                  tailSize: CGSize(width: 20, height: 14),
                                  tailPosition: .bottom,
                                  movePoint: 0,

@@ -187,19 +187,38 @@ private extension ToolTipShape {
     func tailBottomPath(in rect: CGRect) -> Path {
         Path { path in
             
-            path.move(to: CGPoint(x: rect.midX + (tailSize.width / 2) + movePoint, y: rect.maxY - insetValue))
+            path.move(to: CGPoint(x: rect.midX + (tailSize.width / 2) + movePoint,
+                                  y: rect.maxY - insetValue))
             
-            path.addLine(to: CGPoint(x: rect.midX + movePoint, y: rect.maxY + tailSize.height))
+            path.addLine(to: CGPoint(x: rect.midX + movePoint,
+                                     y: rect.maxY + tailSize.height))
             
-            path.addLine(to: CGPoint(x: rect.midX - (tailSize.width / 2) + movePoint, y: rect.maxY - insetValue))
+            path.addLine(to: CGPoint(x: rect.midX - (tailSize.width / 2) + movePoint,
+                                     y: rect.maxY - insetValue))
             
-            path.addArc(tangent1End: CGPoint(x: rect.minX + insetValue, y: rect.maxY - insetValue), tangent2End: (CGPoint(x: rect.minX + insetValue, y: rect.maxY - radius)), radius: radius)
+            path.addArc(tangent1End: CGPoint(x: rect.minX + insetValue,
+                                             y: rect.maxY - insetValue),
+                        tangent2End: (CGPoint(x: rect.minX + insetValue,
+                                              y: rect.maxY - radius)),
+                        radius: radius)
             
-            path.addArc(tangent1End: CGPoint(x: rect.minX + insetValue, y: rect.minY + insetValue), tangent2End: CGPoint(x: rect.minX + radius, y: rect.minY + insetValue), radius: radius)
+            path.addArc(tangent1End: CGPoint(x: rect.minX + insetValue,
+                                             y: rect.minY + insetValue),
+                        tangent2End: CGPoint(x: rect.minX + radius,
+                                             y: rect.minY + insetValue),
+                        radius: radius)
             
-            path.addArc(tangent1End: CGPoint(x: rect.maxX - insetValue, y: rect.minY + insetValue), tangent2End: CGPoint(x: rect.maxX - insetValue, y: rect.minY + radius), radius: radius)
+            path.addArc(tangent1End: CGPoint(x: rect.maxX - insetValue,
+                                             y: rect.minY + insetValue),
+                        tangent2End: CGPoint(x: rect.maxX - insetValue,
+                                             y: rect.minY + radius),
+                        radius: radius)
             
-            path.addArc(tangent1End: CGPoint(x: rect.maxX - insetValue, y: rect.maxY - insetValue), tangent2End: CGPoint(x: rect.maxX - radius, y: rect.maxY - insetValue), radius: radius)
+            path.addArc(tangent1End: CGPoint(x: rect.maxX - insetValue,
+                                             y: rect.maxY - insetValue),
+                        tangent2End: CGPoint(x: rect.maxX - radius,
+                                             y: rect.maxY - insetValue),
+                        radius: radius)
             
             path.closeSubpath()
         }
