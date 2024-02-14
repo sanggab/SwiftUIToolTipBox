@@ -80,7 +80,7 @@
 		EF0F556E2B7B324E0082AC53 = {
 			isa = PBXGroup;
 			children = (
-				EF0F55792B7B324E0082AC53 /* SwiftUIToolTipBox */,
+				EFD9D0562B7C515D00C975C2 /* Sources */,
 				EF0F558A2B7B32500082AC53 /* SwiftUIToolTipBoxTests */,
 				EF0F55942B7B32500082AC53 /* SwiftUIToolTipBoxUITests */,
 				EF0F55782B7B324E0082AC53 /* Products */,
@@ -95,14 +95,6 @@
 				EF0F55912B7B32500082AC53 /* SwiftUIToolTipBoxUITests.xctest */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		EF0F55792B7B324E0082AC53 /* SwiftUIToolTipBox */ = {
-			isa = PBXGroup;
-			children = (
-				EFD9D0562B7C515D00C975C2 /* Sources */,
-			);
-			path = SwiftUIToolTipBox;
 			sourceTree = "<group>";
 		};
 		EF0F558A2B7B32500082AC53 /* SwiftUIToolTipBoxTests */ = {
