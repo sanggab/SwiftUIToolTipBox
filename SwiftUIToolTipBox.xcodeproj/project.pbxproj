@@ -17,6 +17,7 @@
 		EFD9D06C2B7C515D00C975C2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD9D0622B7C515D00C975C2 /* ContentView.swift */; };
 		EFD9D06D2B7C515D00C975C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFD9D0642B7C515D00C975C2 /* Assets.xcassets */; };
 		EFD9D06E2B7C515D00C975C2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFD9D0662B7C515D00C975C2 /* Preview Assets.xcassets */; };
+		EFD9D06F2B7C515D00C975C2 /* SwiftUIToolTipBoxApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD9D0682B7C515D00C975C2 /* SwiftUIToolTipBoxApp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		EFD9D0622B7C515D00C975C2 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		EFD9D0642B7C515D00C975C2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EFD9D0662B7C515D00C975C2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		EFD9D0682B7C515D00C975C2 /* SwiftUIToolTipBoxApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftUIToolTipBoxApp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 				EFD9D0582B7C515D00C975C2 /* ToolTipBox */,
 				EFD9D0632B7C515D00C975C2 /* Utils */,
 				EFD9D0652B7C515D00C975C2 /* Preview Content */,
+				EFD9D0672B7C515D00C975C2 /* Window */,
 			);
 			path = Sources;
 			sourceTree = SOURCE_ROOT;
@@ -198,6 +201,14 @@
 				EFD9D0662B7C515D00C975C2 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		EFD9D0672B7C515D00C975C2 /* Window */ = {
+			isa = PBXGroup;
+			children = (
+				EFD9D0682B7C515D00C975C2 /* SwiftUIToolTipBoxApp.swift */,
+			);
+			path = Window;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -333,6 +344,7 @@
 				EF9560BE2B7C54D8007D3F81 /* ViewExtension.swift in Sources */,
 				EFD9D06A2B7C515D00C975C2 /* ToolTipModifier.swift in Sources */,
 				EFD9D06B2B7C515D00C975C2 /* ToolTipModel.swift in Sources */,
+				EFD9D06F2B7C515D00C975C2 /* SwiftUIToolTipBoxApp.swift in Sources */,
 				EFD9D06C2B7C515D00C975C2 /* ContentView.swift in Sources */,
 				EFD9D0692B7C515D00C975C2 /* ToolTipShape.swift in Sources */,
 			);
