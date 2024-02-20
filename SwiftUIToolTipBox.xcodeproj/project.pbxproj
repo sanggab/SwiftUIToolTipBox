@@ -150,7 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				EFD9D05B2B7C515D00C975C2 /* CustomShape */,
-				EFD9D05D2B7C515D00C975C2 /* View */,
+				EFD9D05D2B7C515D00C975C2 /* ViewModifier */,
 			);
 			path = Modifier;
 			sourceTree = "<group>";
@@ -163,12 +163,12 @@
 			path = CustomShape;
 			sourceTree = "<group>";
 		};
-		EFD9D05D2B7C515D00C975C2 /* View */ = {
+		EFD9D05D2B7C515D00C975C2 /* ViewModifier */ = {
 			isa = PBXGroup;
 			children = (
 				EFD9D05E2B7C515D00C975C2 /* ToolTipModifier.swift */,
 			);
-			path = View;
+			path = ViewModifier;
 			sourceTree = "<group>";
 		};
 		EFD9D05F2B7C515D00C975C2 /* Model */ = {
@@ -518,6 +518,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(OTHER_LDFLAGS)",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.SimSangGab.SwiftUIToolTipBox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -547,6 +551,10 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
+				OTHER_LDFLAGS = (
+					"$(OTHER_LDFLAGS)",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.SimSangGab.SwiftUIToolTipBox;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

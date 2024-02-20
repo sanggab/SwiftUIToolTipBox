@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         ZStack(alignment: .topLeading) {
-            Text("오 안녕하세요")
+            Text("나는 문어 대왕 문어")
                 .padding(.vertical, 8)
                 .padding(.horizontal, 8)
                 .toolTip {
