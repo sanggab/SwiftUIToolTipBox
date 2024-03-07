@@ -2,4 +2,4 @@
 
 ToolTipBox 완성본 ( border도 직접 Path로 그려줬다 )
 
-SPM은 잘못 추가해서 사용을 못 한다
+SPM은 잘못 추가해서 https://github.com/sanggab/SwiftUITooltip.git 사용
