@@ -11,25 +11,31 @@ public struct ToolTipShape: Shape, InsettableShape {
     
     @Environment(\.layoutDirection) private var layoutDirection
     
-    public var radius: CGFloat
-    public var tailSize: CGSize
-    public var tailPosition: TailPosition
-    public var movePoint: CGFloat
+    public var model: ToolTipModel
+    
+    public init(model: ToolTipModel) {
+        self.model = model
+    }
+    
+//    public var model.radius: CGFloat
+//    public var model.model.tailSize: CGSize
+//    public var model.model.tailPosition: model.tailPosition
+//    public var model.movePoint: CGFloat
     
     public var insetValue: CGFloat = 0
     
-    public init(radius: CGFloat,
-                tailSize: CGSize,
-                tailPosition: TailPosition,
-                movePoint: CGFloat) {
-        self.radius = radius
-        self.tailSize = tailSize
-        self.tailPosition = tailPosition
-        self.movePoint = movePoint
-    }
+//    public init(model.radius: CGFloat,
+//                model.tailSize: CGSize,
+//                model.tailPosition: model.tailPosition,
+//                model.movePoint: CGFloat) {
+//        self.model.radius = model.radius
+//        self.model.tailSize = model.tailSize
+//        self.model.tailPosition = model.tailPosition
+//        self.model.movePoint = model.movePoint
+//    }
     
     public func path(in rect: CGRect) -> Path {
-        switch tailPosition {
+        switch model.tailPosition {
         case .top:
             return tailTopPath(in: rect)
         case .leading:
@@ -62,42 +68,42 @@ private extension ToolTipShape {
     func tailTopPath(in rect: CGRect) -> Path {
         Path { path in
             
-            path.move(to: CGPoint(x: rect.midX - (tailSize.width / 2) + movePoint,
+            path.move(to: CGPoint(x: rect.midX - (model.tailSize.width / 2) + model.movePoint,
                                   y: rect.minY + insetValue))
             
-            path.addLine(to: CGPoint(x: rect.midX + movePoint,
-                                     y: rect.minY - tailSize.height + insetValue))
+            path.addLine(to: CGPoint(x: rect.midX + model.movePoint,
+                                     y: rect.minY - model.tailSize.height + insetValue))
             
-            path.addLine(to: CGPoint(x: rect.midX + (tailSize.width / 2) + movePoint,
+            path.addLine(to: CGPoint(x: rect.midX + (model.tailSize.width / 2) + model.movePoint,
                                      y: rect.minY + insetValue))
             
             path.addArc(tangent1End: CGPoint(x: rect.maxX - insetValue,
                                              y: rect.minY + insetValue),
                         tangent2End: CGPoint(x: rect.maxX - insetValue,
-                                             y: rect.minY + radius),
-                        radius: radius)
+                                             y: rect.minY + model.cornerRadius),
+                        radius: model.cornerRadius)
             
             path.addArc(tangent1End: CGPoint(x: rect.maxX - insetValue,
                                              y: rect.maxY - insetValue),
-                        tangent2End: CGPoint(x: rect.maxX - radius,
+                        tangent2End: CGPoint(x: rect.maxX - model.cornerRadius,
                                              y: rect.maxY - insetValue),
-                        radius: radius)
+                        radius: model.cornerRadius)
             
             path.addArc(tangent1End: CGPoint(x: rect.minX + insetValue,
                                              y: rect.maxY - insetValue),
                         tangent2End: CGPoint(x: rect.minX + insetValue,
-                                             y: rect.maxY - radius),
-                        radius: radius)
+                                             y: rect.maxY - model.cornerRadius),
+                        radius: model.cornerRadius)
             
             path.addArc(tangent1End: CGPoint(x: rect.minX + insetValue,
                                              y: rect.minY + insetValue),
-                        tangent2End: CGPoint(x: rect.minX + radius,
+                        tangent2End: CGPoint(x: rect.minX + model.cornerRadius,
                                              y: rect.minY + insetValue),
-                        radius: radius)
+                        radius: model.cornerRadius)
             
             path.closeSubpath()
 
-//            path.addLine(to: CGPoint(x: rect.midX - (tailSize.width / 2) + movePoint,
+//            path.addLine(to: CGPoint(x: rect.midX - (model.tailSize.width / 2) + model.movePoint,
 //                                     y: rect.minY + insetValue))
         }
     }
@@ -106,37 +112,37 @@ private extension ToolTipShape {
         Path { path in
             
             path.move(to: CGPoint(x: rect.minX + insetValue,
-                                  y: rect.midY + (tailSize.width / 2) + movePoint))
+                                  y: rect.midY + (model.tailSize.width / 2) + model.movePoint))
             
-            path.addLine(to: CGPoint(x: rect.minX - tailSize.height + insetValue,
-                                     y: rect.midY + movePoint))
+            path.addLine(to: CGPoint(x: rect.minX - model.tailSize.height + insetValue,
+                                     y: rect.midY + model.movePoint))
             
             path.addLine(to: CGPoint(x: rect.minX + insetValue,
-                                     y: rect.midY - (tailSize.width / 2) + movePoint))
+                                     y: rect.midY - (model.tailSize.width / 2) + model.movePoint))
             
             path.addArc(tangent1End: CGPoint(x: rect.minX + insetValue,
                                              y: rect.minY + insetValue),
-                        tangent2End: CGPoint(x: rect.minX + radius,
+                        tangent2End: CGPoint(x: rect.minX + model.cornerRadius,
                                              y: rect.minY + insetValue),
-                        radius: radius)
+                        radius: model.cornerRadius)
             
             path.addArc(tangent1End: CGPoint(x: rect.maxX - insetValue,
                                              y: rect.minY + insetValue),
                         tangent2End: CGPoint(x: rect.maxX - insetValue,
-                                             y: rect.minY + radius),
-                        radius: radius)
+                                             y: rect.minY + model.cornerRadius),
+                        radius: model.cornerRadius)
             
             path.addArc(tangent1End: CGPoint(x: rect.maxX - insetValue,
                                              y: rect.maxY - insetValue),
-                        tangent2End: CGPoint(x: rect.maxX - radius,
+                        tangent2End: CGPoint(x: rect.maxX - model.cornerRadius,
                                              y: rect.maxY - insetValue),
-                        radius: radius)
+                        radius: model.cornerRadius)
             
             path.addArc(tangent1End: CGPoint(x: rect.minX + insetValue,
                                              y: rect.maxY - insetValue),
                         tangent2End: CGPoint(x: rect.minX + insetValue,
-                                             y: rect.midY + (tailSize.width / 2) + movePoint),
-                        radius: radius)
+                                             y: rect.midY + (model.tailSize.width / 2) + model.movePoint),
+                        radius: model.cornerRadius)
             
             path.closeSubpath()
         }
@@ -146,79 +152,79 @@ private extension ToolTipShape {
         Path { path in
             
             path.move(to: CGPoint(x: rect.maxX - insetValue,
-                                  y: rect.midY - (tailSize.width / 2) + movePoint))
+                                  y: rect.midY - (model.tailSize.width / 2) + model.movePoint))
             
-            path.addLine(to: CGPoint(x: rect.maxX + tailSize.height - insetValue,
-                                     y: rect.midY + movePoint))
+            path.addLine(to: CGPoint(x: rect.maxX + model.tailSize.height - insetValue,
+                                     y: rect.midY + model.movePoint))
             
             path.addLine(to: CGPoint(x: rect.maxX - insetValue,
-                                     y: rect.midY + (tailSize.width / 2) + movePoint))
+                                     y: rect.midY + (model.tailSize.width / 2) + model.movePoint))
             
             path.addArc(tangent1End: CGPoint(x: rect.maxX - insetValue,
                                              y: rect.maxY - insetValue),
-                        tangent2End: CGPoint(x: rect.maxX - radius,
+                        tangent2End: CGPoint(x: rect.maxX - model.cornerRadius,
                                              y: rect.maxY - insetValue),
-                        radius: radius)
+                        radius: model.cornerRadius)
             
             path.addArc(tangent1End: CGPoint(x: rect.minX + insetValue,
                                              y: rect.maxY - insetValue),
                         tangent2End: CGPoint(x: rect.minX + insetValue,
-                                             y: rect.maxY - radius),
-                        radius: radius)
+                                             y: rect.maxY - model.cornerRadius),
+                        radius: model.cornerRadius)
             
             path.addArc(tangent1End: CGPoint(x: rect.minX + insetValue,
                                              y: rect.minY + insetValue),
-                        tangent2End: CGPoint(x: rect.minX + radius,
+                        tangent2End: CGPoint(x: rect.minX + model.cornerRadius,
                                              y: rect.minY + insetValue),
-                        radius: radius)
+                        radius: model.cornerRadius)
             
             path.addArc(tangent1End: CGPoint(x: rect.maxX - insetValue,
                                              y: rect.minY + insetValue),
                         tangent2End: CGPoint(x: rect.maxX - insetValue,
-                                             y: rect.midY - (tailSize.width / 2) + movePoint),
-                        radius: radius)
+                                             y: rect.midY - (model.tailSize.width / 2) + model.movePoint),
+                        radius: model.cornerRadius)
             
             path.closeSubpath()
             
-//            path.addLine(to: CGPoint(x: rect.maxX - insetValue, y: rect.midY - (tailSize.width / 2) + movePoint))
+//            path.addLine(to: CGPoint(x: rect.maxX - insetValue, y: rect.midY - (model.tailSize.width / 2) + model.movePoint))
         }
     }
     
     func tailBottomPath(in rect: CGRect) -> Path {
         Path { path in
             
-            path.move(to: CGPoint(x: rect.midX + (tailSize.width / 2) + movePoint,
+            path.move(to: CGPoint(x: rect.midX + (model.tailSize.width / 2) + model.movePoint,
                                   y: rect.maxY - insetValue))
             
-            path.addLine(to: CGPoint(x: rect.midX + movePoint,
-                                     y: rect.maxY + tailSize.height))
+            path.addLine(to: CGPoint(x: rect.midX + model.movePoint,
+                                     y: rect.maxY + model.tailSize.height))
             
-            path.addLine(to: CGPoint(x: rect.midX - (tailSize.width / 2) + movePoint,
+            path.addLine(to: CGPoint(x: rect.midX - (model.tailSize.width / 2) + model.movePoint,
                                      y: rect.maxY - insetValue))
             
             path.addArc(tangent1End: CGPoint(x: rect.minX + insetValue,
                                              y: rect.maxY - insetValue),
                         tangent2End: (CGPoint(x: rect.minX + insetValue,
-                                              y: rect.maxY - radius)),
-                        radius: radius)
+                                              y: rect.maxY - model.cornerRadius)),
+                        radius: model.cornerRadius)
             
             path.addArc(tangent1End: CGPoint(x: rect.minX + insetValue,
                                              y: rect.minY + insetValue),
-                        tangent2End: CGPoint(x: rect.minX + radius,
+                        tangent2End: CGPoint(x: rect.minX + model.cornerRadius,
                                              y: rect.minY + insetValue),
-                        radius: radius)
+                        radius: model.cornerRadius)
             
             path.addArc(tangent1End: CGPoint(x: rect.maxX - insetValue,
                                              y: rect.minY + insetValue),
                         tangent2End: CGPoint(x: rect.maxX - insetValue,
-                                             y: rect.minY + radius),
-                        radius: radius)
+                                             y: rect.minY + model.cornerRadius),
+                        radius: model.cornerRadius)
             
             path.addArc(tangent1End: CGPoint(x: rect.maxX - insetValue,
                                              y: rect.maxY - insetValue),
-                        tangent2End: CGPoint(x: rect.maxX - radius,
+                        tangent2End: CGPoint(x: rect.maxX - model.cornerRadius,
                                              y: rect.maxY - insetValue),
-                        radius: radius)
+                        radius: model.cornerRadius)
             
             path.closeSubpath()
         }
@@ -227,50 +233,50 @@ private extension ToolTipShape {
 
 //let path = Path { path in
 //
-//    path.move(to: CGPoint(x: rect.minX + radius, y: rect.minY + insetValue))
+//    path.move(to: CGPoint(x: rect.minX + model.radius, y: rect.minY + insetValue))
 //
-//    path.addLine(to: CGPoint(x: rect.midX - (tailSize.width / 2), y: rect.minY + insetValue))
+//    path.addLine(to: CGPoint(x: rect.midX - (model.tailSize.width / 2), y: rect.minY + insetValue))
 //
-//    path.addLine(to: CGPoint(x: rect.midX + insetValue, y: rect.minY - tailSize.height))
+//    path.addLine(to: CGPoint(x: rect.midX + insetValue, y: rect.minY - model.tailSize.height))
 //
-//    path.addLine(to: CGPoint(x: rect.midX + insetValue + (tailSize.width / 2), y: rect.minY + insetValue))
+//    path.addLine(to: CGPoint(x: rect.midX + insetValue + (model.tailSize.width / 2), y: rect.minY + insetValue))
 //
-//    path.addArc(tangent1End: CGPoint(x: rect.maxX - insetValue, y: rect.minY + insetValue), tangent2End: CGPoint(x: rect.maxX - insetValue, y: rect.midY - (radius / 2)), radius: radius)
+//    path.addArc(tangent1End: CGPoint(x: rect.maxX - insetValue, y: rect.minY + insetValue), tangent2End: CGPoint(x: rect.maxX - insetValue, y: rect.midY - (model.radius / 2)), model.radius: model.radius)
 //
-//    path.addArc(tangent1End: CGPoint(x: rect.maxX - insetValue, y: rect.maxY - insetValue), tangent2End: CGPoint(x: rect.maxX - radius, y: rect.maxY - insetValue), radius: 12)
+//    path.addArc(tangent1End: CGPoint(x: rect.maxX - insetValue, y: rect.maxY - insetValue), tangent2End: CGPoint(x: rect.maxX - model.radius, y: rect.maxY - insetValue), model.radius: 12)
 //
-//    path.addLine(to: CGPoint(x: rect.minX + radius, y: rect.maxY - insetValue))
+//    path.addLine(to: CGPoint(x: rect.minX + model.radius, y: rect.maxY - insetValue))
 //
-//    path.addArc(tangent1End: CGPoint(x: rect.minX + insetValue, y: rect.maxY - insetValue), tangent2End: CGPoint(x: rect.minX + insetValue, y: rect.maxY - (radius / 2)), radius: 12)
+//    path.addArc(tangent1End: CGPoint(x: rect.minX + insetValue, y: rect.maxY - insetValue), tangent2End: CGPoint(x: rect.minX + insetValue, y: rect.maxY - (model.radius / 2)), model.radius: 12)
 //
-//    path.addArc(tangent1End: CGPoint(x: rect.minX + insetValue, y: rect.minY + insetValue), tangent2End: CGPoint(x: rect.minX + radius, y: rect.minY + insetValue), radius: 12)
+//    path.addArc(tangent1End: CGPoint(x: rect.minX + insetValue, y: rect.minY + insetValue), tangent2End: CGPoint(x: rect.minX + model.radius, y: rect.minY + insetValue), model.radius: 12)
 //
 //}
 
 
 //        let path = Path { path in
 //
-//            path.move(to: CGPoint(x: rect.minX + radius, y: rect.minY + insetValue))
+//            path.move(to: CGPoint(x: rect.minX + model.radius, y: rect.minY + insetValue))
 //
-//            path.addLine(to: CGPoint(x: rect.midX - (tailSize.width / 2), y: rect.minY + insetValue))
+//            path.addLine(to: CGPoint(x: rect.midX - (model.tailSize.width / 2), y: rect.minY + insetValue))
 //
-//            path.addLine(to: CGPoint(x: rect.midX + insetValue, y: rect.minY - tailSize.height))
+//            path.addLine(to: CGPoint(x: rect.midX + insetValue, y: rect.minY - model.tailSize.height))
 //
-//            path.addLine(to: CGPoint(x: rect.midX + insetValue + (tailSize.width / 2), y: rect.minY + insetValue))
+//            path.addLine(to: CGPoint(x: rect.midX + insetValue + (model.tailSize.width / 2), y: rect.minY + insetValue))
 //
-//            path.addLine(to: CGPoint(x: rect.maxX - radius, y: rect.minY + insetValue))
+//            path.addLine(to: CGPoint(x: rect.maxX - model.radius, y: rect.minY + insetValue))
 //
-//            path.addQuadCurve(to: CGPoint(x: rect.maxX - insetValue, y: rect.midY - (radius / 2)), control: CGPoint(x: rect.maxX - insetValue, y: rect.minY + insetValue))
+//            path.addQuadCurve(to: CGPoint(x: rect.maxX - insetValue, y: rect.midY - (model.radius / 2)), control: CGPoint(x: rect.maxX - insetValue, y: rect.minY + insetValue))
 //
-//            path.addLine(to: CGPoint(x: rect.maxX - insetValue, y: rect.maxY - radius))
+//            path.addLine(to: CGPoint(x: rect.maxX - insetValue, y: rect.maxY - model.radius))
 //
-//            path.addQuadCurve(to: CGPoint(x: rect.maxX - radius, y: rect.maxY - insetValue), control: CGPoint(x: rect.maxX - insetValue, y: rect.maxY - insetValue))
+//            path.addQuadCurve(to: CGPoint(x: rect.maxX - model.radius, y: rect.maxY - insetValue), control: CGPoint(x: rect.maxX - insetValue, y: rect.maxY - insetValue))
 //
-//            path.addLine(to: CGPoint(x: rect.minX + radius, y: rect.maxY - insetValue))
+//            path.addLine(to: CGPoint(x: rect.minX + model.radius, y: rect.maxY - insetValue))
 //
-//            path.addQuadCurve(to: CGPoint(x: rect.minX + insetValue, y: rect.midY + (radius / 2)), control: CGPoint(x: rect.minX + insetValue, y: rect.maxY))
+//            path.addQuadCurve(to: CGPoint(x: rect.minX + insetValue, y: rect.midY + (model.radius / 2)), control: CGPoint(x: rect.minX + insetValue, y: rect.maxY))
 //
-//            path.addLine(to: CGPoint(x: rect.minX + insetValue, y: rect.midY - (radius / 2)))
+//            path.addLine(to: CGPoint(x: rect.minX + insetValue, y: rect.midY - (model.radius / 2)))
 //
-//            path.addQuadCurve(to: CGPoint(x: rect.minX + radius, y: rect.minY + insetValue), control: CGPoint(x: rect.minX + insetValue, y: rect.minY + insetValue))
+//            path.addQuadCurve(to: CGPoint(x: rect.minX + model.radius, y: rect.minY + insetValue), control: CGPoint(x: rect.minX + insetValue, y: rect.minY + insetValue))
 //        }
