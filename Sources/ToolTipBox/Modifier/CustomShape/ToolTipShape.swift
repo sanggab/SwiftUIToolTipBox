@@ -81,8 +81,6 @@ private extension ToolTipShape {
             return rect.midX - (model.tailSize.width / 2)
         case .trailing:
             print("상갑 trailing")
-            print("maxPoint : \(rect.maxX - model.cornerRadius - model.tailSize.width)")
-            
             return rect.maxX - model.cornerRadius - model.tailSize.width - insetValue
         case .custom(let length):
             print("상갑 length -> \(length)")
