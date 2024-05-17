@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-@frozen public enum TailPosition: Equatable {
+@frozen
+public enum TailPosition: Equatable {
     case top
     
     case leading
@@ -18,7 +19,8 @@ import SwiftUI
 }
 
 
-@frozen public enum ToolTipShapeStyle: Equatable {
+@frozen
+public enum ToolTipShapeStyle: Equatable {
     case fill
     
     case stroke
@@ -30,7 +32,19 @@ import SwiftUI
     case fillWithStrokeBorder
 }
 
-@frozen public struct ToolTipModel: Equatable {
+@frozen
+public enum TailAlignment: Equatable {
+    case leading
+    
+    case center
+    
+    case trailing
+    
+    case custom(CGFloat)
+}
+
+@frozen
+public struct ToolTipModel: Equatable {
     
     public var style: ToolTipShapeStyle
     
@@ -38,7 +52,7 @@ import SwiftUI
     
     public var tailPosition: TailPosition
     
-    public var movePoint: CGFloat
+    public var tailAlignment: TailAlignment
     
     public var cornerRadius: CGFloat
     
@@ -51,7 +65,7 @@ import SwiftUI
     public init(style: ToolTipShapeStyle,
                 tailSize: CGSize = .zero,
                 tailPosition: TailPosition = .top,
-                movePoint: CGFloat = .zero,
+                tailAlignment: TailAlignment = .center,
                 cornerRadius: CGFloat = .zero,
                 fillColor: Color = .white,
                 strokeColor: Color = .white,
@@ -59,7 +73,7 @@ import SwiftUI
         self.style = style
         self.tailSize = tailSize
         self.tailPosition = tailPosition
-        self.movePoint = movePoint
+        self.tailAlignment = tailAlignment
         self.cornerRadius = cornerRadius
         self.fillColor = fillColor
         self.strokeColor = strokeColor
