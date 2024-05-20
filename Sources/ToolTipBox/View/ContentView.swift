@@ -15,13 +15,12 @@ struct ContentView: View {
                 ToolTipModel(style: .fillWithStrokeBorder,
                              tailSize: CGSize(width: 20, height: 14),
                              tailPosition: .top,
-                             tailAlignment: .trailing,
+                             tailAlignment: .custom(20),
                              cornerRadius: 10,
                              fillColor: .pink,
                              strokeColor: .orange,
                              strokeStyle: StrokeStyle(lineWidth: 2, lineCap: .round, lineJoin: .round))
             }
-            .background(Color.pink, alignment: .center)
     }
 }
 
