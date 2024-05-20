@@ -90,6 +90,7 @@ private extension ToolTipShape {
             let calPoint = (rect.midX - (model.tailSize.width / 2)) + length
             print("calPoint : \(calPoint)")
             print("maxPoint : \(maxPoint)")
+            print("테스트 테스트")
             
             return min(calPoint, maxPoint)
         }
