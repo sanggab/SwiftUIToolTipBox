@@ -84,7 +84,14 @@ private extension ToolTipShape {
             return rect.maxX - model.cornerRadius - model.tailSize.width - insetValue
         case .custom(let length):
             print("상갑 length -> \(length)")
-            return (rect.midX - model.tailSize.width / 2) + length
+//            print("상갑 Max -> \(rect.maxX - model.cornerRadius - model.tailSize.width - insetValue)")
+            
+            let maxPoint = rect.maxX - model.cornerRadius - model.tailSize.width - insetValue
+            let calPoint = (rect.midX - (model.tailSize.width / 2)) + length
+            print("calPoint : \(calPoint)")
+            print("maxPoint : \(maxPoint)")
+            
+            return min(calPoint, maxPoint)
         }
     }
 }
