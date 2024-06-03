@@ -101,8 +101,6 @@ private extension ToolTipShape {
     
     func tailTopPath(in rect: CGRect) -> Path {
         Path { path in
-//            getMovePoint(rect: rect)
-            
             path.move(to: CGPoint(x: getMovePoint(rect: rect),
                                   y: rect.minY + insetValue))
             
@@ -112,15 +110,6 @@ private extension ToolTipShape {
             path.addLine(to: CGPoint(x: getMovePoint(rect: rect) + model.tailSize.width,
                                      y: rect.minY + insetValue))
             
-//            path.move(to: CGPoint(x: rect.midX - (model.tailSize.width / 2) + model.movePoint,
-//                                  y: rect.minY + insetValue))
-            
-//            path.addLine(to: CGPoint(x: rect.midX + model.movePoint,
-//                                     y: rect.minY - model.tailSize.height + insetValue))
-            
-//            path.addLine(to: CGPoint(x: rect.midX + (model.tailSize.width / 2) + model.movePoint,
-//                                     y: rect.minY + insetValue))
-//
             path.addArc(tangent1End: CGPoint(x: rect.maxX - insetValue,
                                              y: rect.minY + insetValue),
                         tangent2End: CGPoint(x: rect.maxX - insetValue,
